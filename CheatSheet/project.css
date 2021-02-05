@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: cornsilk;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  h2 {
+    color: coral;
+    text-align: center;
+  }
+  
+  table {
+    border: 2px solid darksalmon;
+    width: 650px;
+    margin: 0 auto;
+  }
+  
+  th {
+    background-color: antiquewhite;
+  }
+  
+  td {
+    border-top: 1px solid darkred;
+  }
+  td:first-of-type {
+    font-family: monospace;
+    background-color: burlywood;
+  }
+  
