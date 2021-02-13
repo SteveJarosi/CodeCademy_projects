@@ -47,16 +47,6 @@ figcaption {
     font-size: 17px;
 }
 
-#t1 {
-    height: 100px;
-    width: 200px;
-    background-color: skyblue;
-}
-#t2 {
-    height: 100px;
-    width: 200px;
-    background-color: tomato;
-}
 #background-image {
     height: 700px;
     margin: 0 auto;
@@ -66,7 +56,7 @@ figcaption {
     position: relative;
     margin: 0 auto;
     width: 1200px;
-    top: -500px;
+    top: -400px;
     flex-direction: column;
     align-content: center;
     align-items: center;
