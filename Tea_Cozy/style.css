@@ -1,0 +1,125 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: seashell;
+    background-color: black;
+    font-size: 22px;
+    text-align: center;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+#logo {
+    height: 50px;
+    margin: 10px;
+}
+
+nav {
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+ul {
+    margin-top: 0px;
+    padding-top: 0px;
+    display: flex;
+    justify-content: right;
+    list-style: none;
+}
+li {
+    margin: 10px;
+}
+a {
+    color: seashell;
+}
+h2{
+    margin: 10px;
+}
+h4 {
+    margin: 10px auto;
+}
+figcaption {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+
+#t1 {
+    height: 100px;
+    width: 200px;
+    background-color: skyblue;
+}
+#t2 {
+    height: 100px;
+    width: 200px;
+    background-color: tomato;
+}
+#background-image {
+    height: 700px;
+    margin: 0 auto;
+    
+}
+.main {
+    position: relative;
+    margin: 0 auto;
+    width: 1200px;
+    top: -500px;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    background-color: black;
+}
+main {
+    margin-bottom: -50px;
+}
+.totm {
+    margin: 0 auto;
+    margin-top: 40px;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    width: 1000px;
+}
+.samples {
+    display: inline-flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: -20px;
+}
+.sample-image {
+    max-height: 200px;
+    max-width: 300px;
+    margin: 0 -20px 0 -20px;
+    
+}
+.locations {
+
+    margin: 0 auto;
+    margin-top: 60px;
+    margin-bottom: 50px;
+    background-image: url("img-locations-background.jpg");
+    background-position: top; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size :cover; /* Resize the background image to cover the entire container */
+    justify-content: center;
+    height: 500px;
+    max-width: 1070px;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+.card {
+    background-color: black;
+    width: 300px;
+    margin: 20px;
+}
+footer {
+    max-height: 200px;
+}
+#copyright {
+    text-align: left;
+    margin-left: 20px;
+}
