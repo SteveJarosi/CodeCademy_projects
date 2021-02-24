@@ -1,3 +1,8 @@
+#ifdef _WIN32
+#include <Windows.h>
+#else
+#include <unistd.h>
+#endif
 #include <iostream>
 #include <vector>
 #include <cstdlib>
@@ -26,7 +31,7 @@ void intro()
 }
 
 void board_display()
-{
+{   system("CLS");
     std::cout << "  1 2 3\n";
     std::cout << "a"
               << " " << (p1[0] == 'X' ? p1[0] : p2[0]) << " " << (p1[1] == 'X' ? p1[1] : p2[1]) << " " << (p1[2] == 'X' ? p1[2] : p2[2]) << "\n";
@@ -89,6 +94,7 @@ void handle_input()
     else
     {
         std::cout << "Invalid input! (enter between a1-c3)\n";
+        Sleep(2000);
         switch_player();
         return;
     }
@@ -99,6 +105,7 @@ void handle_input()
         {
             switch_player();
             std::cout << "Wrong place! Again!\n";
+            Sleep(2000);
         }
         else
         {
@@ -111,6 +118,7 @@ void handle_input()
         {
             switch_player();
             std::cout << "Wrong place! Again!\n";
+            Sleep(2000);
         }
         else
         {
@@ -128,7 +136,8 @@ int determine_winner()
         (p2[6] == 'O' && p2[7] == 'O' && p2[8] == 'O') || (p2[0] == 'O' && p2[3] == 'O' && p2[6] == 'O') ||
         (p2[1] == 'O' && p2[4] == 'O' && p2[7] == 'O') || (p2[2] == 'O' && p2[5] == 'O' && p2[8] == 'O') ||
         (p2[0] == 'O' && p2[4] == 'O' && p2[8] == 'O') || (p2[2] == 'O' && p2[4] == 'O' && p2[6] == 'O'))
-    {
+    {   
+        switch_player();
         std::cout << "Congratulations, Player" << player << "!\n";
         winner = 3;
     }

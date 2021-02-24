@@ -13,7 +13,6 @@ int main()
 
     while (determine_winner() == 0)
     {
-
         handle_input();
         board_display();
         switch_player();
