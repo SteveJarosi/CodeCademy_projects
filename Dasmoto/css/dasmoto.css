@@ -1,0 +1,29 @@
+body {
+ font-family: Helvetica;
+ background-color: rgb(185,179,175);}
+.div {
+ color: rgb(255,255,255);}
+ h1 {background-image: url("../img/pattern.webp");
+    font-size: 100px;
+    font-weight: bold;
+    color: khaki;
+    text-align: center;
+}
+h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+}
+figcaption {
+    font-size: 25px;
+    font-weight: bold;}
+p {
+    font-size: 18px;
+    //font-weight: bold;
+}
+.acc {
+    
+    font-size: 18px;
+    font-weight: bold;
+    color: blue;
+}
