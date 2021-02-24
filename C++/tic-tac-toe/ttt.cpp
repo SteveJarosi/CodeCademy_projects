@@ -10,6 +10,13 @@ std::vector<char> p2;
 std::string move;
 int player, winner;
 
+void intro();
+void board_display(std::vector<char> p1, std::vector<char> p2);
+int decide_start();
+void handle_input(std::string move);
+void determine_winner();
+void switch_player();
+
 void intro()
 {
     std::cout << "Let's play Tic-Tac-Toe!\n";
@@ -19,10 +26,13 @@ void intro()
 
 void board_display(std::vector<char> p1, std::vector<char> p2)
 {
-    std::cout << "  a b c\n";
-    std::cout << "1" << " " << (p1[0] == 'X' ? p1[0] : p2[0]) << " " << (p1[1] == 'X' ? p1[1] : p2[1]) << " " << (p1[2] == 'X' ? p1[2] : p2[2]) << "\n";
-    std::cout << "2" << " " << (p1[3] == 'X' ? p1[3] : p2[3]) << " " << (p1[4] == 'X' ? p1[4] : p2[4]) << " " << (p1[5] == 'X' ? p1[5] : p2[5]) << "\n";
-    std::cout << "3" << " " << (p1[6] == 'X' ? p1[6] : p2[6]) << " " << (p1[7] == 'X' ? p1[7] : p2[7]) << " " << (p1[8] == 'X' ? p1[8] : p2[8]) << "\n";
+    std::cout << "  1 2 3\n";
+    std::cout << "a"
+              << " " << (p1[0] == 'X' ? p1[0] : p2[0]) << " " << (p1[1] == 'X' ? p1[1] : p2[1]) << " " << (p1[2] == 'X' ? p1[2] : p2[2]) << "\n";
+    std::cout << "b"
+              << " " << (p1[3] == 'X' ? p1[3] : p2[3]) << " " << (p1[4] == 'X' ? p1[4] : p2[4]) << " " << (p1[5] == 'X' ? p1[5] : p2[5]) << "\n";
+    std::cout << "c"
+              << " " << (p1[6] == 'X' ? p1[6] : p2[6]) << " " << (p1[7] == 'X' ? p1[7] : p2[7]) << " " << (p1[8] == 'X' ? p1[8] : p2[8]) << "\n";
 }
 
 int decide_start()
@@ -39,41 +49,90 @@ void handle_input(std::string move)
     if (move == "a1")
     {
         locus = 0;
-    } else if (move == "a2") {
+    }
+    else if (move == "a2")
+    {
         locus = 1;
-    } else if (move == "a3") {
+    }
+    else if (move == "a3")
+    {
         locus = 2;
-    } else if (move == "b1") {
+    }
+    else if (move == "b1")
+    {
         locus = 3;
-    } else if (move == "b2") {
+    }
+    else if (move == "b2")
+    {
         locus = 4;
-    } else if (move == "b3") {
+    }
+    else if (move == "b3")
+    {
         locus = 5;
-    } else if (move == "c1") {
+    }
+    else if (move == "c1")
+    {
         locus = 6;
-    } else if (move == "c2") {
+    }
+    else if (move == "c2")
+    {
         locus = 7;
-    } else if (move == "c3") {
+    }
+    else if (move == "c3")
+    {
         locus = 8;
     }
 
     if (player == 1)
     {
-        p1[locus] = 'X';
+        if (p1[locus] != ' ' || p2[locus] != ' ')
+        {
+            switch_player();
+            std::cout << "Wrong place! Again!\n";
+        }
+        else
+        {
+            p1[locus] = 'X';
+        }
     }
     else
     {
-        p2[locus] = 'O';
+        if (p2[locus] != ' ' || p1[locus] != ' ')
+        {
+            switch_player();
+            std::cout << "Wrong place! Again!\n";
+        }
+        else
+        {
+            p2[locus] = 'O';
+        }
     }
-    
 }
-void determine_winner() {
-    winner = 1;
+void determine_winner()
+{
+    if ((p1[0] == 'X' && p1[1] == 'X' && p1[2] == 'X') || (p1[3] == 'X' && p1[4] == 'X' && p1[5] == 'X') ||
+        (p1[6] == 'X' && p1[7] == 'X' && p1[8] == 'X') || (p1[0] == 'X' && p1[3] == 'X' && p1[6] == 'X') ||
+        (p1[1] == 'X' && p1[4] == 'X' && p1[7] == 'X') || (p1[2] == 'X' && p1[5] == 'X' && p1[8] == 'X') ||
+        (p1[0] == 'X' && p1[4] == 'X' && p1[8] == 'X') || (p1[2] == 'X' && p1[4] == 'X' && p1[6] == 'X') ||
+        (p2[0] == 'O' && p2[1] == 'O' && p2[2] == 'O') || (p2[3] == 'O' && p2[4] == 'O' && p2[5] == 'O') ||
+        (p2[6] == 'O' && p2[7] == 'O' && p2[8] == 'O') || (p2[0] == 'O' && p2[3] == 'O' && p2[6] == 'O') ||
+        (p2[1] == 'O' && p2[4] == 'O' && p2[7] == 'O') || (p2[2] == 'O' && p2[5] == 'O' && p2[8] == 'O') ||
+        (p2[0] == 'O' && p2[4] == 'O' && p2[8] == 'O') || (p2[2] == 'O' && p2[4] == 'O' && p2[6] == 'O'))
+    {
+        std::cout << "Congratulations, Player" << player << "!\n";
+        winner = 1;
+    }
 }
-void switch_player() {
-    if (player == 1 ) {
+void switch_player()
+{
+    if (player == 1)
+    {
         player = 2;
-    } else {player = 1;}
+    }
+    else
+    {
+        player = 1;
+    }
 }
 int main()
 
@@ -97,10 +156,5 @@ int main()
         board_display(p1, p2);
         determine_winner();
         switch_player();
-
-
-        
     }
-    std::cout << "Congratulations, Player" << winner << "!\n";
-
 }
