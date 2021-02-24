@@ -19,9 +19,23 @@ void board_display(std::vector<char> p1, std::vector<char> p2) {
     std::cout << "3" << (p1[6]='X'? p1[6] : p2[6]) << (p1[7]='X'? p1[7] : p2[7]) << (p1[8]='X'? p1[8] : p2[8]) << "\n";
 
 }
+
 int decide_start() {
     srand(time(NULL));
     int p=std::rand() %2 +1;
     std::cout << "Player " << p << " starts!\n";
     return p;
+}
+
+void handle_input(std::string move) {
+    int locus;
+    if (move == "a1") {
+        locus = 0;
+    }
+
+    if (player == 1) {
+        p1[locus]="X";
+    } else {
+        p2[locus]="O";
+    }
 }
