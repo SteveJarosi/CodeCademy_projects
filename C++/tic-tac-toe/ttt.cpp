@@ -81,6 +81,10 @@ void handle_input(std::string move)
     else if (move == "c3")
     {
         locus = 8;
+    } else {
+        std::cout << "Invalid input! (enter between a1-c3)\n";
+        switch_player();
+        return;
     }
 
     if (player == 1)
@@ -120,6 +124,20 @@ void determine_winner()
         (p2[0] == 'O' && p2[4] == 'O' && p2[8] == 'O') || (p2[2] == 'O' && p2[4] == 'O' && p2[6] == 'O'))
     {
         std::cout << "Congratulations, Player" << player << "!\n";
+        winner = 1;
+    }
+    int sum = 0;
+    for (int i = 0; i < p1.size(); i++)
+    {
+        if (p1[i] != ' ' || p2[i] != ' ')
+        {
+            sum++;
+        }
+    }
+    
+    if (sum == 9)
+    {
+        std::cout << "It's a tie!!!\n";
         winner = 1;
     }
 }
