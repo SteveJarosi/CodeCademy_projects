@@ -20,9 +20,9 @@ void intro()
 void board_display(std::vector<char> p1, std::vector<char> p2)
 {
     std::cout << "  a b c\n";
-    std::cout << "1" << (p1[0] = 'X' ? p1[0] : p2[0]) << (p1[1] = 'X' ? p1[1] : p2[1]) << (p1[2] = 'X' ? p1[2] : p2[2]) << "\n";
-    std::cout << "2" << (p1[3] = 'X' ? p1[3] : p2[3]) << (p1[4] = 'X' ? p1[4] : p2[4]) << (p1[5] = 'X' ? p1[5] : p2[5]) << "\n";
-    std::cout << "3" << (p1[6] = 'X' ? p1[6] : p2[6]) << (p1[7] = 'X' ? p1[7] : p2[7]) << (p1[8] = 'X' ? p1[8] : p2[8]) << "\n";
+    std::cout << "1" << " " << (p1[0] == 'X' ? p1[0] : p2[0]) << " " << (p1[1] == 'X' ? p1[1] : p2[1]) << " " << (p1[2] == 'X' ? p1[2] : p2[2]) << "\n";
+    std::cout << "2" << " " << (p1[3] == 'X' ? p1[3] : p2[3]) << " " << (p1[4] == 'X' ? p1[4] : p2[4]) << " " << (p1[5] == 'X' ? p1[5] : p2[5]) << "\n";
+    std::cout << "3" << " " << (p1[6] == 'X' ? p1[6] : p2[6]) << " " << (p1[7] == 'X' ? p1[7] : p2[7]) << " " << (p1[8] == 'X' ? p1[8] : p2[8]) << "\n";
 }
 
 int decide_start()
@@ -35,10 +35,26 @@ int decide_start()
 
 void handle_input(std::string move)
 {
-    int locus=10;
+    int locus;
     if (move == "a1")
     {
         locus = 0;
+    } else if (move == "a2") {
+        locus = 1;
+    } else if (move == "a3") {
+        locus = 2;
+    } else if (move == "b1") {
+        locus = 3;
+    } else if (move == "b2") {
+        locus = 4;
+    } else if (move == "b3") {
+        locus = 5;
+    } else if (move == "c1") {
+        locus = 6;
+    } else if (move == "c2") {
+        locus = 7;
+    } else if (move == "c3") {
+        locus = 8;
     }
 
     if (player == 1)
@@ -49,6 +65,7 @@ void handle_input(std::string move)
     {
         p2[locus] = 'O';
     }
+    
 }
 void determine_winner() {
     winner = 1;
