@@ -43,5 +43,10 @@ def convert():
         elif option == "2":
             print "Hex to RGB..."
             hex_rgb()
-        elif option = "x" or option = "X":
+        elif option == "x" or option == "X":
             break
+        else:
+            print "Error."
+
+
+convert()
