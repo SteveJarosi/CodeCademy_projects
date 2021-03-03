@@ -1,5 +1,7 @@
+invalid_msg = "Invalid entry!"
+
+
 def rgb_hex():
-    invalid_msg = "Invalid entry!"
     red = int(raw_input("Red value: (R)"))
     if red < 0 or red > 255:
         print invalid_msg
@@ -14,7 +16,6 @@ def rgb_hex():
         return
     val = (red << 16) + (green << 8) + blue
     print(hex(val)[2:]).upper()
-# rgb_hex()
 
 
 def hex_rgb():
