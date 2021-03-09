@@ -43,11 +43,11 @@ print(calculate_all_error(1, -1, datapoints))
 datapoints = [(1, 1), (3, 3), (5, 5), (-1, -1)]
 print(calculate_all_error(-1, 1, datapoints))
 
-#possible_ms = [i/10 for i in range(-100, 100, 1)] #your list comprehension here
-#possible_bs = [i/10 for i in range(-200, 200, 1)] #your list comprehension here
+possible_ms = [i/10 for i in range(-100, 100, 1)] #your list comprehension here
+possible_bs = [i/10 for i in range(-200, 200, 1)] #your list comprehension here
 # the above method gives an error in the range of  0.0000000000000001, but turns out to be significant!!!
-possible_ms = [m * 0.1 for m in range(-100, 101)]
-possible_bs = [b * 0.1 for b in range(-200, 201)]
+#possible_ms = [m * 0.1 for m in range(-100, 101)]
+#possible_bs = [b * 0.1 for b in range(-200, 201)]
 
 datapoints = [(1, 2), (2, 0), (3, 4), (4, 4), (5, 3)]
 smallest_error = float("inf")
@@ -57,7 +57,7 @@ for m in possible_ms:
     for b in possible_bs:
         if calculate_all_error(m, b, datapoints) < smallest_error:
             print(best_m, best_b, smallest_error)
-            smallest_error = calculate_all_error(m, b, datapoints)
+            smallest_error = round(calculate_all_error(m, b, datapoints), 3)
             best_m = m
             best_b = b
 print(best_m, best_b, smallest_error)
