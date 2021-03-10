@@ -64,3 +64,19 @@ def vigenere_decode(str, keyword):
 
 print(vigenere_decode("dfc aruw fsti gr vjtwhr wznj? vmph otis! cbx swv jipreneo uhllj kpi rahjib eg fjdkwkedhmp!", "friends"))
 
+def vigenere_encode(str, keyword):
+    str_enc = ''
+    count=0
+    for i in str:
+        if i in alph_L:
+            str_enc += alph_L[(alph_L.index(i)+(alph_L.index(keyword[count % len(keyword)]))) % 26]
+            count+=1
+        elif i in alph_U:
+            str_enc += alph_U[(alph_U.index(i)+(alph_U.index(keyword[count % len(keyword)]))) % 26]
+            count+=1
+        else:
+            str_enc += i
+        
+    return str_enc
+
+print(vigenere_encode("you were able to decode this? nice work! you are becoming quite the expert at crytography!", "friends"))
