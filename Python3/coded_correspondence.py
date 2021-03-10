@@ -42,3 +42,25 @@ print(encode("Hello! How are you doing on this beautyful day?", 10))
 print(decode("jxu evviuj veh jxu iusedt cuiiqwu yi vekhjuud.", 10))
 
 print(decode("bqdradyuzs ygxfubxq omqemd oubtqde fa oapq kagd yqeemsqe ue qhqz yadq eqogdq!", 14))
+
+for i in range(26):
+    print(decode("vhfinmxkl atox kxgwxkxw tee hy maxlx hew vbiaxkl tl hulhexmx. px'ee atox mh kxteer lmxi ni hnk ztfx by px ptgm mh dxxi hnk fxlltzxl ltyx.", i), i)
+# offset: 7
+
+def vigenere_decode(str, keyword):
+    str_dec = ''
+    count=0
+    for i in str:
+        if i in alph_L:
+            str_dec += alph_L[(alph_L.index(i)-(alph_L.index(keyword[count % len(keyword)]))) % 26]
+            count+=1
+        elif i in alph_U:
+            str_dec += alph_U[(alph_U.index(i)-(alph_U.index(keyword[count % len(keyword)]))) % 26]
+            count+=1
+        else:
+            str_dec += i
+        
+    return str_dec
+
+print(vigenere_decode("dfc aruw fsti gr vjtwhr wznj? vmph otis! cbx swv jipreneo uhllj kpi rahjib eg fjdkwkedhmp!", "friends"))
+
