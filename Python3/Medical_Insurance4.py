@@ -33,6 +33,6 @@ estimated_insurance_data.append(("Valentina", valentina_insurance_cost))
 estimated_insurance_data.append(("Akira", akira_insurance_cost))
 print("Here is the estimated insurance cost data: {}".format(
     estimated_insurance_data))
-insurance_cost_difference = [estimated_insurance_data[x][1]-insurance_data[x][1] for x in range(len(estimated_insurance_data))]
+insurance_cost_difference = [estimated_insurance_data[x][1] -
+                             insurance_data[x][1] for x in range(len(estimated_insurance_data))]
 print(insurance_cost_difference)
-
