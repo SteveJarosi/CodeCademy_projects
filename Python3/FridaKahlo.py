@@ -10,3 +10,5 @@ audio_tour_number = [x for x in range(1, len(paintings)+1)]
 print(audio_tour_number)
 master_list = list(zip(audio_tour_number, paintings))
 print(master_list)
+for k, v in master_list:
+    print(k, v)
