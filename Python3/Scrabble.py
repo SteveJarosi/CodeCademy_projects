@@ -15,3 +15,20 @@ def score_word(word):
         else:
             point_total += 0
     return point_total
+
+
+brownie_points = score_word('BROWNIE')
+print(brownie_points)
+
+player_to_words = {'player1': ['BLUE', 'TENNIS', 'EXIT'], 'wordNerd': ['EARTH', 'EYES', 'MACHINE'], 'Lexi Con': [
+    'ERASER', 'BELLY', 'HUSKY'], 'Prof Reader': ['ZAP', 'COMA', 'PERIOD']}
+
+player_to_points = {}
+
+for player in player_to_words:
+    print(player, player_to_words[player])
+    player_points = 0
+    for word in player_to_words[player]:
+        player_points += score_word(word)
+    player_to_points[player] = player_points
+print(player_to_points)
