@@ -24,3 +24,25 @@ def calculate_availability(gamers_list, available_frequency):
             available_frequency[day]+=1
     return available_frequency
 print(calculate_availability(gamers, count_availability))
+def find_best_night(availability_table):
+    best_day = 'Monday'
+    for day in availability_table.keys():
+        if availability_table[day] > availability_table[best_day]:
+            best_day = day
+    return best_day
+game_night = find_best_night(calculate_availability(gamers, count_availability))
+print(game_night)
+def available_on_night(gamers_list, day):
+    attending = []
+    for gamer in gamers_list:
+        if day in gamer['availability']:
+            attending.append(gamer['name'])
+    return attending
+attending_game_night = available_on_night(gamers, game_night)
+print(attending_game_night)
+def form_email(name, game, day_of_week):
+    return "{name}, your {game} will be held on {day_of_week}".format(name=name, game=game, day_of_week=day_of_week)
+def send_email(gamers_who_can_attend, day, game):
+    for gamer in gamers_who_can_attend:
+        print(form_email(gamer, game, day))
+send_email(attending_game_night, game_night, "Abruptly Goblins!")
