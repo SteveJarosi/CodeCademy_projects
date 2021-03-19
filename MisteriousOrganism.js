@@ -28,13 +28,24 @@ const returnRandBase = () => {
         return this.dna
       },
       compareDNA(spec) {
-  
+        let commonBaseNr = 0
+        for (i=0; i< this.dna.length; i++) {
+          if (this.dna[i] === spec.dna[i]) {
+            commonBaseNr++
+          }
+        }
+        let perc = Math.round(10000 * commonBaseNr / this.dna.length)/100
         console.log(`specimen #${spec.specimen} and specimen #${this.specimen} have ${perc}% DNA in common`)
       },
       willLikelySurvive() {
-        if (true) {
-          return true
-        } else return false
+        let goodBaseNr = 0
+        for (i=0; i< this.dna.length; i++) {
+          if (this.dna[i] === 'C' || this.dna[i] === 'G') {
+            goodBaseNr++
+          }
+        }
+        let perc = Math.round(10000 * goodBaseNr / this.dna.length)/100
+        return perc >= 60
       }
     }
   }
@@ -45,16 +56,19 @@ const returnRandBase = () => {
   while (viableBugs.length < 30) {
     newBug = pAequorFactory(num, mockUpStrand())
     syringe.push(newBug)
+    console.log(newBug)
+    console.log("Will survive?",newBug.willLikelySurvive())
     if (newBug.willLikelySurvive() === true) {
       viableBugs.push(newBug)
     }
     num++
   }
-  console.log(viableBugs)
+  
   let joe = pAequorFactory(42, mockUpStrand())
   console.log(joe)
   joe.mutate()
   console.log(joe)
+  joe.compareDNA(syringe[23])
   
   
   
