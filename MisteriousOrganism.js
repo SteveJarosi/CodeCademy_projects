@@ -27,7 +27,7 @@ function pAequorFactory(number, array) {
             this.dna[baseMutationIndex] = baseMutation
             return this.dna
         },
-        compareDNA(spec) {
+        compareDNA(spec, mute=0) {
             let commonBaseNr = 0
             for (i = 0; i < this.dna.length; i++) {
                 if (this.dna[i] === spec.dna[i]) {
@@ -35,7 +35,9 @@ function pAequorFactory(number, array) {
                 }
             }
             let perc = Math.round(10000 * commonBaseNr / this.dna.length) / 100
+            if (mute != 0) {
             console.log(`specimen #${spec.specimen} and specimen #${this.specimen} have ${perc}% DNA in common`)
+            }
             return perc
         },
         willLikelySurvive() {
@@ -91,7 +93,7 @@ let maxCommon = 0
 for (bug1 of viableBugs) {
   for (bug2 of viableBugs) {
     if (bug1.compareDNA(bug2) > maxCommon && bug1 != bug2) {
-      maxCommon = bug1.compareDNA(bug2)
+      maxCommon = bug1.compareDNA(bug2, 1)
       mostlyRelated.splice(0,2,bug1,bug2)
       console.log(mostlyRelated)
     } 
