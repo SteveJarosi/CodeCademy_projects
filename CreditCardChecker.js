@@ -54,7 +54,7 @@ function fixInvalidCards(cardArray) {
         if (!validateCred(card)) {
             invalidArray.push(card)
         }
-        //console.log(card, validateCred(card))
+        console.log(card, validateCred(card), idInvalidCardCompanies([card]))
     }
     return invalidArray
 }
@@ -95,3 +95,68 @@ function idInvalidCardCompanies(invArray) {
 }
 
 console.log(idInvalidCardCompanies(fixInvalidCards(batch)))
+let testCardNumbers = `
+VISA:
+4485040934039837
+4532697451742482
+4929536551512847170
+MasterCard:
+5103788656221145
+5144996540451684
+2720994326285623
+American Express (AMEX):
+378948809312642
+348091560348856
+376226942812303
+Discover:
+6011480956869562
+6011998493192008
+6011212581902353584
+JCB:
+3540906896579157
+3543396907688279
+3529822051683346112
+Diners Club - North America:
+5418495990119114
+5500310764404908
+5548191875256187
+Diners Club - Carte Blanche:
+30266671618578
+30165187826677
+30384252107760
+Diners Club - International:
+36759905137310
+36310519098660
+36823808888518
+Maestro:
+0604955276172850
+0604249491323690
+6304093512928578
+Visa Electron:
+4844595422384330
+4508425017628635
+4917409299381589
+InstaPayment:
+6373047161795205
+6388737261937656
+6389659192170612`
+
+console.log(testCardNumbers)
+let testArray = testCardNumbers.split("\n")
+console.log(testArray)
+let newTests = []
+for (line of testArray) {
+    console.log(typeof Number(line), Number(line))
+    if (Number(line) > 0) {
+        let newLine = line.split('')
+        let numArray = []
+        for (i of newLine) {
+            numArray.push(parseInt(i))
+        }
+
+        newTests.push(numArray)
+    }
+}
+console.log(newTests)
+console.log(batch)
+console.log(idInvalidCardCompanies(fixInvalidCards(newTests)))
