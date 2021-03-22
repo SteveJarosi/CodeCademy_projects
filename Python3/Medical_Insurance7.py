@@ -17,3 +17,42 @@ print(medical_data)
 updated_medical_data = medical_data.replace("#", "$")
 print(updated_medical_data)
 num_records = 0
+for i in updated_medical_data:
+  if i == '$':
+    num_records+=1
+print("There are {num_records} medical records in the data.".format(num_records=num_records))
+medical_data_split = updated_medical_data.split(";")
+print(medical_data_split)
+medical_records = []
+for rec in medical_data_split:
+  medical_records.append(rec.split(","))
+print(medical_records)
+medical_records_clean = []
+for rec in medical_records:
+  record_clean = []
+  for item in rec:
+    record_clean.append(item.strip())
+  medical_records_clean.append(record_clean)
+print(medical_records_clean)
+for record in medical_records_clean:
+  record[0] = record[0].upper()
+  print(record[0])
+names, ages, bmis, insurance_costs = ([] for i in range(4))
+for record in medical_records_clean:
+    names.append(record[0])
+    ages.append(record[1])
+    bmis.append(record[2])
+    insurance_costs.append(record[3])
+print(names, ages, bmis, insurance_costs)
+total_bmi = 0
+for bmi in bmis:
+  total_bmi+=float(bmi)
+average_bmi = total_bmi / len(bmis)
+print("Average BMI: {}".format(average_bmi))
+total_ins = 0
+for i in insurance_costs:
+  total_ins+=float(i.strip('$'))
+average_ins = total_ins / len(insurance_costs)
+print("Average Insurance Cost: {}".format(average_ins))
+for i in range(len(names)):
+    print("{} is {} year old with a BMI of {} and an insurance cost of {}.".format(names[i].title().split(' ')[0], ages[i], bmis[i], insurance_costs[i]))
