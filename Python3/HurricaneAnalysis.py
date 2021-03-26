@@ -91,22 +91,49 @@ def get_max_affected_area():
     for i in damaged_areas.keys():
         if damaged_areas[i] > damaged_areas.get(max_affected, 0):
             max_affected = i
-    return max_affected
+    return max_affected, damaged_areas[max_affected]
 # find most frequently affected area and the number of hurricanes involved in
-print(get_max_affected_area())
+a, b = get_max_affected_area()
+print("Most affected area: {}, hit {} times.".format(a,b))
 
 # 6
 # Calculating the Deadliest Hurricane
+def get_deadliest_hurricane():
+    max_deaths = next(iter(hurricanes_by_name))
+    for i in hurricanes_by_name:
+        if hurricanes_by_name[i]['Deaths'] > hurricanes_by_name[max_deaths]['Deaths']:
+            max_deaths = i
+    return max_deaths, hurricanes_by_name[max_deaths]['Deaths']
 
 # find highest mortality hurricane and the number of deaths
-
+a, b = get_deadliest_hurricane()
+print("Deadliest hurricane was {} with {} deaths.".format(a, b))
 # 7
 # Rating Hurricanes by Mortality
+mortality_scale = {0: 0,
+                   1: 100,
+                   2: 500,
+                   3: 1000,
+                   4: 10000}
 
+def get_hurricane_mortality_scale(hurricane_name):
+    deaths = hurricanes_by_name[hurricane_name]['Deaths']
+    if deaths == 0:
+        return 0
+    elif deaths <= 100:
+        return 1
+    elif deaths <= 500:
+        return 2
+    elif deaths <= 1000:
+        return 3
+    else:
+         return 4
 
 # categorize hurricanes in new dictionary with mortality severity as key
-
-
+hurricanes_by_mortality = {0: [], 1: [], 2: [], 3: [], 4: []}
+for hurricane in hurricanes_by_name:
+    hurricanes_by_mortality[get_hurricane_mortality_scale(hurricane)].append(hurricane)
+print(hurricanes_by_mortality)
 # 8 Calculating Hurricane Maximum Damage
 
 # find highest damage inducing hurricane and its total cost
