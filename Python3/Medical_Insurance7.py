@@ -33,7 +33,7 @@ for rec in medical_records:
   for item in rec:
     record_clean.append(item.strip())
   medical_records_clean.append(record_clean)
-print(medical_records_clean)
+print("Med recs clean:", medical_records_clean)
 for record in medical_records_clean:
   record[0] = record[0].upper()
   print(record[0])
