@@ -71,19 +71,29 @@ print(hurricanes_by_year[1932])
 # 4
 # Counting Damaged Areas
 damaged_areas = {}
+def get_damaged_area_count(dam_area):
+    dam_area_count = 0
+    for list in areas_affected:
+        for area in list:
+            if area == dam_area:
+                dam_area_count += 1
+    return dam_area_count
+# create dictionary of areas to store the number of hurricanes involved in
 for list in areas_affected:
     for area in list:
-        damaged_areas.update({area: damaged_areas.get(area, 0)+1})
+        damaged_areas.update({area: get_damaged_area_count(area)})
 print(damaged_areas)
-
-# create dictionary of areas to store the number of hurricanes involved in
-
 
 # 5
 # Calculating Maximum Hurricane Count
-
+def get_max_affected_area():
+    max_affected = ''
+    for i in damaged_areas.keys():
+        if damaged_areas[i] > damaged_areas.get(max_affected, 0):
+            max_affected = i
+    return max_affected
 # find most frequently affected area and the number of hurricanes involved in
-
+print(get_max_affected_area())
 
 # 6
 # Calculating the Deadliest Hurricane
