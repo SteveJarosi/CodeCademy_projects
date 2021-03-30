@@ -7,3 +7,10 @@ eggs = recipes[:, 2]
 print(eggs)
 eggs_one = eggs == 1
 print(eggs_one)
+
+cookies = recipes[2, :]
+print(cookies)
+double_batch = cupcakes * 2
+grocery_list = cookies + double_batch
+
+print(grocery_list)
