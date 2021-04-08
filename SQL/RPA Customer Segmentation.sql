@@ -55,7 +55,7 @@ alter table users
 add age integer;
 update users
 set age = created_at - birthday;
-select *
+select *, created_at - birthday as Age2
 from users
 limit 20;
 
