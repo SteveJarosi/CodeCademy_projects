@@ -6,3 +6,4 @@ tmp*.*
 *.txt
 ESP*
 Temperature
+.*
