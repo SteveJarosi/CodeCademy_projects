@@ -7,3 +7,4 @@ tmp*.*
 ESP*
 Temperature
 .*
+__pycache__
