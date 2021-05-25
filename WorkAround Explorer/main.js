@@ -1,5 +1,7 @@
 // TODO: Add your import statements here.
 import {getRoles, getCompanies} from './modules/salaryData.js';
+import {formatNumber} from './modules/utilities.js';
+
 import {getAverageSalaryByRole,
   getAverageSalaryByCompany,
   getSalaryAtCompany,
@@ -51,7 +53,9 @@ function renderInputButtons(labels, groupName) {
 function updateResults(){
   // Get the current selected company and role from the radio button inputs.
   const company = document.querySelector("input[name='company']:checked").value;
+  console.log(company)
   const role = document.querySelector("input[name='role']:checked").value;
+  console.log(role)
 
   // If either the company or role is unselected, return.
   if (!company || !role) { return; }
@@ -63,10 +67,10 @@ function updateResults(){
   const industryAverageSalary = getIndustryAverageSalary();
 
   // Render them to the screen.
-  document.getElementById('salarySelected').innerText = `The salary for ${role}s at ${company} is \$${salary}`;
-  document.getElementById('salaryAverageByRole').innerText = `The industry average salary for ${role} positions is \$${averageSalaryByRole}`;
-  document.getElementById('salaryAverageByCompany').innerText = `The average salary at ${company} is \$${averageSalaryByCompany}`;
-  document.getElementById('salaryAverageIndustry').innerText = `The average salary in the Tech industry is \$${industryAverageSalary}`;
+  document.getElementById('salarySelected').innerText = `The salary for ${role}s at ${company} is \$${formatNumber(salary)}`;
+  document.getElementById('salaryAverageByRole').innerText = `The industry average salary for ${role} positions is \$${formatNumber(averageSalaryByRole)}`;
+  document.getElementById('salaryAverageByCompany').innerText = `The average salary at ${company} is \$${formatNumber(averageSalaryByCompany)}`;
+  document.getElementById('salaryAverageIndustry').innerText = `The average salary in the Tech industry is \$${formatNumber(industryAverageSalary)}`;
 }
 
 
