@@ -9,7 +9,7 @@ const alignItems = 'center';
 const justifyContent = 'center';
 const color = 'white';
 const marginTop = '20px';
-const width = '50%';
+const width = '20%';
 
 const divStyles = {
     fontFamily: fontFamily,
